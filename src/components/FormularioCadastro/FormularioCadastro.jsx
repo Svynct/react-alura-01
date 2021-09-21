@@ -9,17 +9,17 @@ class FormularioCadastro extends Component {
     this.texto = "";
   }
 
-  handleMudancaTitulo(evento) {
+  _handleMudancaTitulo(evento) {
     evento.stopPropagation();
     this.titulo = evento.target.value;
   }
 
-  handleMudancaTexto(evento) {
+  _handleMudancaTexto(evento) {
     evento.stopPropagation();
     this.texto = evento.target.value;
   }
 
-  criarNota(evento) {
+  _criarNota(evento) {
     evento.preventDefault();
     evento.stopPropagation();
     this.props.criarNota(this.titulo, this.texto);
@@ -28,17 +28,17 @@ class FormularioCadastro extends Component {
   render() {
     return (
       <form className="form-cadastro"
-        onSubmit={this.criarNota.bind(this)}>
+        onSubmit={this._criarNota.bind(this)}>
         <input 
           type="text" 
           placeholder="Titulo" 
           className="form-cadastro_input" 
-          onChange={this.handleMudancaTitulo.bind(this)}/>
+          onChange={this._handleMudancaTitulo.bind(this)}/>
         <textarea 
           rows={15} 
           placeholder="Escreva sua nota..." 
           className="form-cadastro_input"
-          onChange={this.handleMudancaTexto.bind(this)}/>
+          onChange={this._handleMudancaTexto.bind(this)}/>
         <button className="form-cadastro_submit">CRIAR NOTA</button>
       </form>
     );
